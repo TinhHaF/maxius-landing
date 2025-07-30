@@ -33,7 +33,7 @@
 //   );
 // }
 
-import "./globals.css";
+import "@/styles/globals.css";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 
@@ -41,17 +41,25 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Maxius Landing Page",
-  description: "Modern, minimalist, startup-focused landing page",
+  description: "Modern, minimalist, startup-focused landing page.",
   keywords: ["Next.js", "Maxius", "Landing Page", "Tailwind CSS"],
+  metadataBase: new URL("https://maxius-landing.vercel.app"),
   openGraph: {
-    title: "Maxius Landing",
-    description: "Inspired by Maxius.io",
+    title: "Maxius Landing Page",
+    description: "A modern landing page inspired by Maxius.io.",
     url: "https://maxius-landing.vercel.app",
     siteName: "Maxius",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/og-image.jpg", // dùng ảnh trong thư mục public
+        width: 1200,
+        height: 630,
+        alt: "Maxius Landing Preview Image",
+      },
+    ],
   },
-  metadataBase: new URL("https://maxius-landing.vercel.app"),
 };
 
 export default function RootLayout({
@@ -61,6 +69,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );

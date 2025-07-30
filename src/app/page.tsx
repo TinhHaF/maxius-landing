@@ -101,27 +101,40 @@
 //     </div>
 //   );
 // }
-'use client'
-import dynamic from "next/dynamic";
 
+"use client"; // Bắt buộc khi sử dụng framer-motion và animation phía client
+
+import dynamic from "next/dynamic";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { useSectionTracker } from "@/hooks/useSectionTracker";
+
+// Import các section chính bằng dynamic import (tắt SSR)
+// vì các section này dùng animation nên chỉ nên render phía client
 const Hero = dynamic(() => import("@/components/Hero"), { ssr: false });
 const Features = dynamic(() => import("@/components/Features"), { ssr: false });
 const About = dynamic(() => import("@/components/About"), { ssr: false });
 const Contact = dynamic(() => import("@/components/Contact"), { ssr: false });
 
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-
+// Trang chính (home) của landing page
 export default function Home() {
+  // Theo dõi các ID của section để cập nhật URL
+  useSectionTracker(["hero", "features", "about", "contact"]);
+
   return (
     <>
+      {/* Thanh điều hướng */}
       <Navbar />
+
       <main>
+        {/* Các phần nội dung chính */}
         <Hero />
         <Features />
         <About />
         <Contact />
       </main>
+
+      {/* Chân trang */}
       <Footer />
     </>
   );
