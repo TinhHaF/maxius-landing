@@ -33,21 +33,35 @@
 //   );
 // }
 
+import "./globals.css";
+import { Inter } from "next/font/google";
+import type { Metadata } from "next";
 
-import './globals.css'
-import { Inter } from 'next/font/google'
+const inter = Inter({ subsets: ["latin"] });
 
-const inter = Inter({ subsets: ['latin'] })
+export const metadata: Metadata = {
+  title: "Maxius Landing Page",
+  description: "Modern, minimalist, startup-focused landing page",
+  keywords: ["Next.js", "Maxius", "Landing Page", "Tailwind CSS"],
+  openGraph: {
+    title: "Maxius Landing",
+    description: "Inspired by Maxius.io",
+    url: "https://maxius-landing.vercel.app",
+    siteName: "Maxius",
+    locale: "en_US",
+    type: "website",
+  },
+  metadataBase: new URL("https://maxius-landing.vercel.app"),
+};
 
-export const metadata = {
-  title: 'Maxius Landing Page',
-  description: 'Inspired by Maxius.io',
-}
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-[#0f0f0f] text-white`}>{children}</body>
+      <body className={inter.className}>{children}</body>
     </html>
-  )
+  );
 }

@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 # maxius-landing
-=======
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -37,4 +35,35 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
->>>>>>> bd9d592 (Initial commit from Create Next App)
+
+## Cấu trúc thư mục
+
+maxius-landing/
+├── public/ # Hình ảnh, favicon, logo
+├── src/
+│ ├── app/
+│ │ └── page.tsx # Trang chính, dùng các components
+│ ├── components/ # Hero.tsx, Features.tsx, About.tsx, Contact.tsx, Footer.tsx, Navbar.tsx
+│ └── styles/ # globals.css
+├── tailwind.config.ts # Cấu hình Tailwind
+├── postcss.config.js # Cấu hình PostCSS
+├── tsconfig.json # TypeScript config (có @ alias)
+├── README.md # Hướng dẫn tổng quan
+└── package.json # Dependencies
+
+## Cài đặt và chạy local
+
+```bash
+# B1: Clone
+git clone https://github.com/TinhHaF/maxius-landing.git
+cd maxius-landing
+
+# B2: Cài đặt package
+npm install
+
+# B3: Chạy dev
+npm run dev
+
+## Demo online 
+
+🔗 https://maxius-landing.vercel.app

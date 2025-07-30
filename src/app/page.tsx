@@ -101,14 +101,16 @@
 //     </div>
 //   );
 // }
+'use client'
+import dynamic from "next/dynamic";
 
+const Hero = dynamic(() => import("@/components/Hero"), { ssr: false });
+const Features = dynamic(() => import("@/components/Features"), { ssr: false });
+const About = dynamic(() => import("@/components/About"), { ssr: false });
+const Contact = dynamic(() => import("@/components/Contact"), { ssr: false });
 
-import Hero from '@/components/Hero'
-import Features from '@/components/Features'
-import About from '@/components/About'
-import Contact from '@/components/Contact'
-import Footer from '@/components/Footer'
-import Navbar from '@/components/Navbar'
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -122,5 +124,5 @@ export default function Home() {
       </main>
       <Footer />
     </>
-  )
+  );
 }
